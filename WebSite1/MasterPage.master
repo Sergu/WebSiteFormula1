@@ -1,0 +1,50 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeFile="MasterPage.master.cs" Inherits="MasterPage" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title></title>
+    <asp:ContentPlaceHolder id="head" runat="server">
+    </asp:ContentPlaceHolder>
+    <link rel="Stylesheet" href="Content/Style.css" />
+</head>
+<body style="background-image:url(Images/Background.png)">
+    <form id="form1" runat="server">
+    <div class="vert-strength">
+        <div class="vert-strength-Button">
+            <img src="Images/F1logo.png" alt="---" width="100%"/>
+        </div>
+        <div class="vert-strength-Button">
+            <p>Main</p>
+        </div>
+        <div class="vert-strength-Button">
+            <p>Standings</p>
+        </div>
+        <div class="vert-strength-Button">
+            <p>Schedule</p>
+        </div>
+        <div class="vert-strength-Button">
+            <p>Drivers</p>
+        </div>
+        <div class="vert-strength-Button">
+            <p>Teams</p>
+        </div>       
+    </div>
+    
+    <div class="content">
+        <ul class="ex">
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+    <div class="bottomLine">
+        <p>Hi</p>
+    </div>
+    </form>
+</body>
+</html>
+
+<%--        <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+        </asp:ContentPlaceHolder>--%>

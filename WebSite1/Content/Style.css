@@ -1,0 +1,53 @@
+﻿body {
+    background-image:url("Images/Background.png");
+    background-color:green;
+}
+
+.vert-strength{
+    width:90%;
+    height: 70px;
+    margin:auto;
+    background-color:grey;
+    margin-top:80px;
+}
+.f1logo{
+    width:15%;
+    float:left;
+}
+.vert-strength-Button{
+    width:12%;
+    height:100%;
+    float:left;
+    background-color:blue;
+    font-family:'Times New Roman';
+    font-size:large;
+    font-style:oblique;
+    text-align:center;
+    border-right:solid;
+    cursor:default;
+}
+.vert-strength-LastBlock{
+    background-color:red;
+    width:10%;
+}
+.content{
+    width:90%;
+    height: 400px;
+    padding-top:40px;
+    max-height:inherit;
+    margin:auto;
+    background-color:white;
+
+}
+.bottomLine{
+    width:100%;
+    height:40px;
+    text-align:center;
+    color:white;
+    background-color:black;
+    bottom:0px;
+    margin-bottom:auto;
+}
+.ex{
+    position:relative;
+}
