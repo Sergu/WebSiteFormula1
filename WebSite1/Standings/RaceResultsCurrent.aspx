@@ -2,12 +2,11 @@
 
 <asp:Content ID="DriverInfoCOntent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div style ="width:340px; font-family:'Times New Roman'" runat="server">
-        <asp:GridView ID="GridViewCurrentRace" runat="server" AutoGenerateColumns="false" ShowHeader="false">
-            
+        <asp:GridView ID="GridViewCurrentRace" runat="server" AutoGenerateColumns="false" ShowHeader="false">          
             <Columns>
                 <asp:TemplateField>
                     <ItemTemplate>
-                        <table cols="9">
+                        <table>
                             <tr>
                                 <td>
                                     <h3><%#Eval("Position") %></h3>

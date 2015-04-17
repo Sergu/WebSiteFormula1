@@ -91,7 +91,7 @@ public partial class Standings_RaceResultsCurrent : System.Web.UI.Page
             case "WilliamsBritish":
                 return "../Images/teamCarWilliams.jpg";
             case "Lotus F1British":
-                return "../Images/default.jpg";
+                return "../Images/teamCarLotus.jpg";
             case "SauberSwiss":
                 return "../Images/teamCarSauber.jpg";
             case "Red BullAustrian":

@@ -10,34 +10,22 @@
     </asp:ContentPlaceHolder>
     <link rel="Stylesheet" href="Content/Style.css" />
 </head>
-<body style="background-image:url(Images/Background.png)">
+<body style="background-image:url(../Images/Background.png)">
     <form id="form1" runat="server">
     <div class="vert-strength">
-        <div class="vert-strength-Button">
-            <img src="Images/F1logo.png" alt="---" width="100%"/>
-        </div>
-        <div class="vert-strength-Button">
-            <p>Main</p>
-        </div>
-        <div class="vert-strength-Button">
-            <p>Standings</p>
-        </div>
-        <div class="vert-strength-Button">
-            <p>Schedule</p>
-        </div>
-        <div class="vert-strength-Button">
-            <p>Drivers</p>
-        </div>
-        <div class="vert-strength-Button">
-            <p>Teams</p>
-        </div>       
+        <ul class="newUl">
+<%--            <li class="newli" style="width:10%"><img src="../Images/F1logo.png" alt="---" width="100%"/></li>--%>
+            <li class="newli"><a class="newA" href="../Default.aspx">Main</a></li>
+            <li class="newli"><a class="newA" href="../Standings/RaceResultsCurrent.aspx">Standings</a></li>
+            <li class="newli"><a class="newA" href="../Standings/DriverInfo.aspx">Drivers</a></li>
+            <li class="newli"><a class="newA">Teams</a></li>
+            <li class="newli"><a class="newA">Schedule</a></li>
+        </ul>    
     </div>
     
     <div class="content">
-        <ul class="ex">
-            <li></li>
-            <li></li>
-        </ul>
+         <asp:ContentPlaceHolder id="ContentPlaceHolder1" runat="server">
+        </asp:ContentPlaceHolder>
     </div>
     <div class="bottomLine">
         <p>Hi</p>
@@ -46,5 +34,5 @@
 </body>
 </html>
 
-<%--        <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
+       <%-- <asp:ContentPlaceHolder id="ContentPlaceHolder2" runat="server">
         </asp:ContentPlaceHolder>--%>

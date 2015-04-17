@@ -1,11 +1,11 @@
 ﻿body {
-    background-image:url("Images/Background.png");
-    background-color:green;
+    //background-image:url(~Images/Background.png);
+    //background-color:green;
 }
 
 .vert-strength{
     width:90%;
-    height: 70px;
+    height: 60px;
     margin:auto;
     background-color:grey;
     margin-top:80px;
@@ -32,10 +32,11 @@
 }
 .content{
     width:90%;
-    height: 400px;
-    padding-top:40px;
-    max-height:inherit;
-    margin:auto;
+    margin-top:40px;
+    padding-top:10px;
+    //max-height:inherit;
+    //margin:auto;
+    margin-left:5%;
     background-color:white;
 
 }
@@ -50,4 +51,35 @@
 }
 .ex{
     position:relative;
+}
+
+.mainPage-driverStandingsBlock{
+    width:50%;
+    //margin: 4%;
+}
+
+.newUl{
+    float:left;
+    width:100%;
+    padding:0;
+    MARGIN:0;
+    list-style-type: none;
+}
+
+.newLi{
+    display:inline;
+}
+
+.newA{
+    float: left;
+    width: 10%;
+    text-decoration: none;
+    color: white;
+    background-color: purple;
+    padding: 1em 2em;
+    border-right: 1px solid white;
+}
+
+a:hover{
+    background-color:fuchsia;
 }
