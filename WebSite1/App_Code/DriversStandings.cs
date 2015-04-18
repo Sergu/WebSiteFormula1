@@ -9,73 +9,40 @@ using System.Xml;
 /// </summary>
 public class DriversStandings
 {
-    private static List<Driver> Standings;
+    private static List<Driver> standingsDrivers;
 
     public static IEnumerable<Driver> GetDriverStandings()
     {
-        return Standings;
+        return standingsDrivers;
     }
     public static void MakeDriversStandings()
     {
-        string rssFeedUrl = "http://ergast.com/api/f1/2015/driverStandings";
+        string driverStandingsUrl = "http://ergast.com/api/f1/2015/driverStandings";
         try
         {
-            Standings = new List<Driver>();
+            standingsDrivers = new List<Driver>();
             XmlDocument xDoc = new XmlDocument();
-            xDoc.Load(rssFeedUrl);
+            xDoc.Load(driverStandingsUrl);
 
             int counter = 0;
             foreach (XmlElement xmlelement in xDoc.LastChild.FirstChild.FirstChild.ChildNodes)
             {
                 counter = 0;
                 Driver driver = new Driver();
-                foreach (XmlAttribute driverStandingAttributes in xmlelement.Attributes)
-                {
-                    switch (counter)
-                    {
-                        case 0:
-                            driver.Position = driverStandingAttributes.InnerText;
-                            break;
-                        case 2:
-                            driver.Points = driverStandingAttributes.InnerText;
-                            break;
-                        case 3:
-                            driver.Wins = driverStandingAttributes.InnerText;
-                            break;
-                        default:
-                            break;
-                    }
-                    counter++;
-                }
-                counter = 0;
-                foreach (XmlElement driverInfo in xmlelement.FirstChild.ChildNodes)
-                {
-                    switch (counter)
-                    {
-                        case 0:
-                            driver.PermanentNumber = driverInfo.InnerText;
-                            break;
-                        case 1:
-                            driver.GivenName = driverInfo.InnerText;
-                            break;
-                        case 2:
-                            driver.FamilyName = driverInfo.InnerText;
-                            break;
-                        case 3:
-                            driver.DateOfBirth = driverInfo.InnerText;
-                            break;
-                        case 4:
-                            driver.Nationality = driverInfo.InnerText;
-                            break;
-                        default:
-                            break;
-                    }
-                    counter++;
-                }
-                driver.Constructor = xmlelement.LastChild.InnerText;
+                driver.Position = xmlelement.Attributes[0].Value;
+                driver.Points = xmlelement.Attributes[2].Value;
+                driver.Wins = xmlelement.Attributes[3].Value;
+
+                driver.PermanentNumber = xmlelement.FirstChild.ChildNodes[0].InnerText;
+                driver.GivenName = xmlelement.FirstChild.ChildNodes[1].InnerText;
+                driver.FamilyName = xmlelement.FirstChild.ChildNodes[2].InnerText;
+                driver.DateOfBirth = xmlelement.FirstChild.ChildNodes[3].InnerText;
+                driver.Nationality = xmlelement.FirstChild.ChildNodes[4].InnerText;
+
+                driver.Constructor = xmlelement.LastChild.ChildNodes[0].InnerText;
                 driver.ImageCar = GetImageCar(driver.Constructor);
-                Standings.Add(driver);
                 driver.NameSurname = driver.GivenName + " " + driver.FamilyName;
+                standingsDrivers.Add(driver);
             }
         }
         catch (Exception ex)
@@ -88,23 +55,23 @@ public class DriversStandings
     {
         switch (str)
         {
-            case "MercedesGerman":
+            case "Mercedes":
                 return "../Images/teamCarMercedes.jpg";
-            case "FerrariItalian":
+            case "Ferrari":
                 return "../Images/teamCarFerrari.jpg";
-            case "WilliamsBritish":
+            case "Williams":
                 return "../Images/teamCarWilliams.jpg";
-            case "Lotus F1British":
+            case "Lotus F1":
                 return "../Images/teamCarLotus.jpg";
-            case "SauberSwiss":
+            case "Sauber":
                 return "../Images/teamCarSauber.jpg";
-            case "Red BullAustrian":
+            case "Red Bull":
                 return "../Images/teamCarRedBull.jpg";
-            case "Force IndiaIndian":
+            case "Force India":
                 return "../Images/teamCarForceIndia.jpg";
-            case "Toro RossoItalian":
+            case "Toro Rosso":
                 return "../Images/teamCarToroRosso.jpg";
-            case "McLarenBritish":
+            case "McLaren":
                 return "../Images/teamCarMcLaren.jpg";
             default:
                 return "../Images/default.jpg";

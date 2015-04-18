@@ -3,37 +3,32 @@
 
 
 <asp:Content ID="StandingsContent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div style="text-align:center;background-color:purple"><h2>The latest in Formula 1</h2></div>
+    <div style="text-align:center"><h2>The latest in Formula 1</h2></div>
     <div style="width:100%">
-        <div class="mainPage-driverStandingsBlock" style="display:inline-block" runat="server">   
+        <div class="mainPage-driverStandingsBlock" style="display:inline-block;vertical-align:top" runat="server">   
             <table style="text-align:left">
             <thead>
                 <tr style="width:100%">
-                   <h2>DriverStandings</h2>
+                   <h2>Driver Standings</h2>
                 </tr>
             </thead>
-            <tfoot>
-                <tr>
-                    <p><a  href="Standings/RaceResultsCurrent.aspx" style="text-align:center"> see full championship standings</a></p>
-                </tr>
-            </tfoot>
             <tbody>
                 <asp:Repeater ID="RepeaterDrivers" runat ="server">
                     <ItemTemplate>
-                        <tr">
-                            <td style="width:3%">
+                        <tr>
+                            <td style="width:5%">
                                 <%#Eval("Position") %>
                             </td>
-                            <td style="width:25%">
+                            <td style="width:30%">
                                 <%#Eval("NameSurname") %>
                             </td>
-                            <td style="width:35%">
+                            <td style="width:25%">
                                 <%#Eval("Constructor") %>
                             </td>
                             <td style="width:25%">
                                 <img src="<%#Eval("ImageCar") %>" alt="---" width ="120px" height="30px"/>
                             </td>
-                            <td style="width:12%">
+                            <td style="width:15%; text-align:center">
                                 <%#Eval("Points") %>
                             </td>
                         </tr>
@@ -41,9 +36,48 @@
                 </asp:Repeater>
             </tbody>
             </table>
+            <p><a  href="Standings/RaceResultsCurrent.aspx" style="text-align:center"> see full championship standings</a></p>
+
+            <table style="text-align:left">
+            <thead>
+                <tr style="width:100%">
+                   <h2>Team Standings</h2>
+                </tr>
+            </thead>
+            <tbody>
+                <asp:Repeater ID="RepeaterTeamStandings" runat ="server">
+                    <ItemTemplate>
+                        <tr>
+                            <td style="width:5%">
+                                <%#Eval("Position") %>
+                            </td>
+                            <td style="width:80%">
+                                <%#Eval("Name") %>
+                            </td>
+                            <td style="width:15%; text-align:center">
+                                <%#Eval("Points") %>
+                            </td>
+                        </tr>
+                    </ItemTemplate>
+                </asp:Repeater>
+            </tbody>
+            </table>
+            <p><a  href="Standings/RaceResultsCurrent.aspx" style="text-align:center"> See full standings</a></p>
         </div>
-        <div  style="width:49%;height:100%;background-color:#63e47a;display:inline-block">
-            <h3>news</h3>
+        <div ID="BlockNews" style="width:49%;height:100%;background-color:#63e47a;display:inline-block">
+            <h2 style="margin:4%;font-family:'Times New Roman';text-align:center"> Some news from Formula 1 world</h2>
+            <div style="width:95%;margin:auto;height: 1400px;overflow:auto">
+            <asp:Repeater ID="RepeaterNews" runat="server">
+                <ItemTemplate>
+                    <div style="background-color:#d692ff;margin:4%;padding:4%;border-radius:5px">
+                        <h3><%#Eval("Title") %></h3><hr />
+                        <div><%#Eval("Description") %></div>
+                        <div><h4>Date : <%#Eval("PublishDate") %></h4></div>
+                        <div><h4><a href="<%#Eval("Link") %>">Read More...</a></h4></div>
+                    </div>
+                </ItemTemplate>
+            </asp:Repeater>
+            </div>
         </div>
     </div>
 <%--    <asp:LinkButton ID="DriverInfoButton" runat="server" OnClick="DriverInfoButton_Click">DriverInfo</asp:LinkButton>

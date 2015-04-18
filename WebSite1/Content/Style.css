@@ -54,8 +54,9 @@
 }
 
 .mainPage-driverStandingsBlock{
-    width:50%;
-    //margin: 4%;
+    width:46%;
+    margin: 2%;
+    border-right:solid 2px #da90eb;
 }
 
 .newUl{
@@ -82,4 +83,9 @@
 
 a:hover{
     background-color:fuchsia;
+}
+
+.driver-info-content {
+    width: 90%;
+    margin-left:5%;
 }

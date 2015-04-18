@@ -8,10 +8,8 @@ using System.Web;
 /// </summary>
 public class Feed
 {
-	public Feed()
-	{
-		//
-		// TODO: добавьте логику конструктора
-		//
-	}
+        public string Title { get; set; }
+        public string Link { get; set; }
+        public string Description { get; set; }
+        public string PublishDate { get; set; }
 }

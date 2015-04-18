@@ -16,8 +16,20 @@ public partial class _Default : System.Web.UI.Page
             {
                 DriversStandings.MakeDriversStandings();
             }
+            if (NewsPublishing.GetNewsColection() == null)
+            {
+                NewsPublishing.ReadingNewsFromRssChanel();
+            }
+            if (TeamStandings.GetTeamStandings() == null)
+            {
+                TeamStandings.MakeTeamStandings();
+            }
             RepeaterDrivers.DataSource = DriversStandings.GetDriverStandings();
             RepeaterDrivers.DataBind();
+            RepeaterNews.DataSource = NewsPublishing.GetNewsColection();
+            RepeaterNews.DataBind();
+            RepeaterTeamStandings.DataSource = TeamStandings.GetTeamStandings();
+            RepeaterTeamStandings.DataBind();
         }
     }
     protected void DriverInfoButton_Click(object sender, EventArgs e)
