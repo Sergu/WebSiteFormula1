@@ -16,7 +16,7 @@ public class NewsPublishing
     }
     public static void ReadingNewsFromRssChanel()
     {
-        string rssFeedUrl = "http://www.f1news.ru/export/news.xml";
+        string rssFeedUrl = "http://www.f1-world.ru/news/rssexp6.xml";
         NewsCollection = new List<Feed>();
         try
         {

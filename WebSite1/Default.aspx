@@ -64,16 +64,27 @@
             </table>
             <p><a  href="Standings/RaceResultsCurrent.aspx" style="text-align:center"> See full standings</a></p>
         </div>
-        <div ID="BlockNews" style="width:49%;height:100%;background-color:#63e47a;display:inline-block">
+        <div ID="BlockNews" style="width:49%;max-height:100%;background-color:#63e47a;display:inline-block">
             <h2 style="margin:4%;font-family:'Times New Roman';text-align:center"> Some news from Formula 1 world</h2>
-            <div style="width:95%;margin:auto;height: 1400px;overflow:auto">
+            <asp:Button ID="ButtonDelete" runat="server" OnClick="ButtonDelete_Click" Text="Delete All news"/>
+            <asp:Button ID="ButtonInsert" runat="server" OnClick="ButtonInsert_Click" Text="Insert News" />
+            <asp:DropDownList 
+                ID="DropDownListRssUrls" 
+                runat="server"
+                AutoPostBack="true" 
+                OnSelectedIndexChanged="DropDownListRssUrls_SelectedIndexChanged">
+                <asp:ListItem></asp:ListItem>
+                <asp:ListItem></asp:ListItem>
+                <asp:ListItem></asp:ListItem>
+            </asp:DropDownList>
+            <div ID="NewsBlock" style="width:95%;margin:auto;height: 1400px;overflow:auto" runat="server">
             <asp:Repeater ID="RepeaterNews" runat="server">
                 <ItemTemplate>
                     <div style="background-color:#d692ff;margin:4%;padding:4%;border-radius:5px">
                         <h3><%#Eval("Title") %></h3><hr />
                         <div><%#Eval("Description") %></div>
                         <div><h4>Date : <%#Eval("PublishDate") %></h4></div>
-                        <div><h4><a href="<%#Eval("Link") %>">Read More...</a></h4></div>
+                        <div><h4><a class="news_link_a" href="<%#Eval("Link") %>">Read More...</a></h4></div>
                     </div>
                 </ItemTemplate>
             </asp:Repeater>

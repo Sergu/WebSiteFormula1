@@ -60,7 +60,7 @@
 }
 
 .newUl{
-    float:left;
+    //float:left;
     width:100%;
     padding:0;
     MARGIN:0;
@@ -81,11 +81,77 @@
     border-right: 1px solid white;
 }
 
+a{
+    text-decoration:none;
+}
+
 a:hover{
+    color:fuchsia;
+}
+
+.newA:hover{
     background-color:fuchsia;
+    color:purple;
 }
 
 .driver-info-content {
     width: 90%;
     margin-left:5%;
+}
+
+li:hover{
+    background-color:aqua;
+}
+
+.news_link_a{
+    color:purple;
+    background-color:none;
+}
+.news_link_a:visited{
+    color:fuchsia;
+}
+.news_link_a:hover{
+    color:#d75aea;
+    background-color:none;
+}
+
+.driverInfoUl{
+    width:100%;
+    margin:0;
+    padding:0;
+    list-style-type:none;
+}
+
+.driverInfoLi{
+    display:inline;
+}
+
+.drivers_divBlock_in_li{
+    display:inline-block;
+    width: 19.3%;
+    text-decoration: none;
+    color: black;
+    background-color: white;
+    padding: 1em 2em;
+    border-right: 1px solid #808080;
+    border-top: 1px solid #808080;
+    border-bottom: 1px solid #808080;
+    cursor:default;
+}
+
+.drivers_divBlock_in_li:hover{
+    background-color:black;
+    color:white;
+}
+
+.text_style_for_iherit{
+    color:gray;
+}
+.driverInfoDefaultFields{
+    color:gray;
+    font-size:large;
+}
+.driverInfoDinamicFields{
+    color:black;
+    font-size:large;
 }

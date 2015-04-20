@@ -18,7 +18,7 @@
             <li class="newli"><a class="newA" href="../Default.aspx">Main</a></li>
             <li class="newli"><a class="newA" href="../Standings/RaceResultsCurrent.aspx">Standings</a></li>
             <li class="newli"><a class="newA" href="../Standings/DriverInfo.aspx">Drivers</a></li>
-            <li class="newli"><a class="newA">Teams</a></li>
+            <li class="newli"><a class="newA" href="../Standings/PersonalDriver.aspx">Teams</a></li>
             <li class="newli"><a class="newA">Schedule</a></li>
         </ul>    
     </div>

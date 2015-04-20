@@ -40,4 +40,21 @@ public partial class _Default : System.Web.UI.Page
     {
         Response.Redirect("~/Standings/RaceResultsCurrent.aspx");
     }
+    protected void ButtonDelete_Click(object sender, EventArgs e)
+    {
+        //this.Controls.Remove(NewsBlock);
+        //Controls.Remove(NewsBlock);
+        Controls.Remove(NewsBlock);
+        RepeaterNews.DataSource = null;
+        RepeaterNews.DataBind();
+    }
+    protected void ButtonInsert_Click(object sender, EventArgs e)
+    {
+        RepeaterNews.DataSource = NewsPublishing.GetNewsColection();
+        RepeaterNews.DataBind();
+    }
+    protected void DropDownListRssUrls_SelectedIndexChanged(object sender, EventArgs e)
+    {
+
+    }
 }
