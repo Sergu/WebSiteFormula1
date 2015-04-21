@@ -18,6 +18,7 @@ public partial class _Default : System.Web.UI.Page
             }
             if (NewsPublishing.GetNewsColection() == null)
             {
+                NewsPublishing.SetRssUrlFromDropListIndex(DropDownListRssUrls.SelectedIndex);
                 NewsPublishing.ReadingNewsFromRssChanel();
             }
             if (TeamStandings.GetTeamStandings() == null)
@@ -32,29 +33,30 @@ public partial class _Default : System.Web.UI.Page
             RepeaterTeamStandings.DataBind();
         }
     }
-    protected void DriverInfoButton_Click(object sender, EventArgs e)
+
+    protected void ButtonRefresh_Click(object sender, EventArgs e)
     {
-        Response.Redirect("~/Standings/DriverInfo.aspx");
-    }
-    protected void CurrentRaceButton_Click(object sender, EventArgs e)
-    {
-        Response.Redirect("~/Standings/RaceResultsCurrent.aspx");
-    }
-    protected void ButtonDelete_Click(object sender, EventArgs e)
-    {
-        //this.Controls.Remove(NewsBlock);
-        //Controls.Remove(NewsBlock);
-        Controls.Remove(NewsBlock);
-        RepeaterNews.DataSource = null;
-        RepeaterNews.DataBind();
-    }
-    protected void ButtonInsert_Click(object sender, EventArgs e)
-    {
+        NewsPublishing.ReadingNewsFromRssChanel();
         RepeaterNews.DataSource = NewsPublishing.GetNewsColection();
         RepeaterNews.DataBind();
     }
     protected void DropDownListRssUrls_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+        NewsPublishing.SetRssUrlFromDropListIndex(DropDownListRssUrls.SelectedIndex);
+        NewsPublishing.ReadingNewsFromRssChanel();
+        RepeaterNews.DataSource = NewsPublishing.GetNewsColection();
+        RepeaterNews.DataBind();
+    }
+    protected void ButtonUrlAdd_Click(object sender, EventArgs e)
+    {
+        ListItem newElement = new ListItem();
+        newElement.Text = TextBoxSite.Text;
+        NewsPublishing.AddListRssUrls(TextBoxUrl.Text);
+        DropDownListRssUrls.Items.Add(newElement);
+    }
+    protected void ButtonDelete_Click(object sender, EventArgs e)
+    {
+        DropDownListRssUrls.Items.RemoveAt(DropDownListRssUrls.SelectedIndex);
+        NewsPublishing.RemoveListUrls(DropDownListRssUrls.SelectedIndex);
     }
 }

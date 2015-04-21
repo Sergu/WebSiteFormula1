@@ -9,8 +9,18 @@ using System.Xml;
 /// </summary>
 public class DriversStandings
 {
-    private static List<Driver> standingsDrivers;
 
+    private static List<Driver> standingsDrivers;
+    private static string CurrentDriverNumber { get; set; }
+    public static void SetCurrentDriverNumber(string number)
+    {
+        CurrentDriverNumber = number;
+    }
+
+    public static string GetCurrentDriverNumber()
+    {
+        return CurrentDriverNumber;
+    }
     public static IEnumerable<Driver> GetDriverStandings()
     {
         return standingsDrivers;
