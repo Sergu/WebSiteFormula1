@@ -9,25 +9,25 @@
                     <asp:Repeater runat="server" ID="RepeaterDriverStandingsFull">
                         <ItemTemplate>
                         <tr style="height:80px">
-                            <td style="width:5%">
+                            <td style="width:5%;font-size:large;color:gray">
                                 <%#Eval("Position") %>
                             </td>
-                            <td style="width:15%">
+                            <td style="width:15%;font-size:large;color:#444242">
                                 <%#Eval("NameSurname") %>
                             </td>
-                            <td style="width:5%">
+                            <td style="width:5%;color:gray">
                                 <%#Eval("PermanentNumber") %>
                             </td>
-                            <td style="width:10%">
+                            <td style="width:10%;color:gray">
                                 <%#Eval("Nationality") %>
                             </td>
-                            <td style="width:13%">
+                            <td style="width:13%;color:gray">
                                 <%#Eval("Constructor") %>
                             </td>
                             <td style="width:12%">
                                 <img src="<%#Eval("ImageCar") %>" style="width:180px;height:45px" />
                             </td>
-                            <td style="width:5%;text-align:center">
+                            <td style="width:5%;text-align:center;color:#6b6666;font-family:'Times New Roman';font-size:medium">
                                 <%#Eval("Points") %>
                             </td>
                         </tr>

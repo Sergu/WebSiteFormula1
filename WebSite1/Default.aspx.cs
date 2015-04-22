@@ -15,6 +15,7 @@ public partial class _Default : System.Web.UI.Page
             if (DriversStandings.GetDriverStandings() == null)
             {
                 DriversStandings.MakeDriversStandings();
+                
             }
             if (NewsPublishing.GetNewsColection() == null)
             {
@@ -25,7 +26,7 @@ public partial class _Default : System.Web.UI.Page
             {
                 TeamStandings.MakeTeamStandings();
             }
-            RepeaterDrivers.DataSource = DriversStandings.GetDriverStandings();
+            RepeaterDrivers.DataSource = DriversStandings.GetFirstTenDrivers();
             RepeaterDrivers.DataBind();
             RepeaterNews.DataSource = NewsPublishing.GetNewsColection();
             RepeaterNews.DataBind();

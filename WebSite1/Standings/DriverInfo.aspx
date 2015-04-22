@@ -7,6 +7,10 @@
             <ItemTemplate>
                 <li class="driverInfoLi" runat="server">
                     <div id="newblock" class="drivers_divBlock_in_li" style="text-align:center" runat="server" onclick="clickDiv()">
+                        <div style="width:100%">
+                            <img src="<%#Eval("ImageDriver") %>" width="100%" alt="Driver image" />
+                        </div>
+                        <div>
                         <div class="text_style_for_iherit">
                             <%#Eval("PermanentNumber") %>
                         </div>
@@ -15,6 +19,7 @@
                         </div>  
                         <div class="text_style_for_iherit">
                             <%#Eval("Constructor") %>
+                        </div>
                         </div>
                     </div>
 <%--                    <asp:Panel ID="DriverBlock" CssClass="drivers_divBlock_in_li" runat="server" OnDataBinding="DriverBlock_DataBinding">

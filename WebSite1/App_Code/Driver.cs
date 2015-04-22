@@ -18,5 +18,6 @@ public class Driver
     public string Constructor { get; set; }
     public string DateOfBirth { get; set; }
     public string ImageCar { get; set; }
+    public string ImageDriver { get; set; }
     public string NameSurname { get; set; }
 }

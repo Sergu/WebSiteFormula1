@@ -41,6 +41,8 @@ public class NewsPublishing
             XDocument xDoc = new XDocument();
             xDoc = XDocument.Load(rssFeedUrl);
 
+            var k = xDoc.Descendants("item");
+
             var items = (from x in xDoc.Descendants("item")
                          select new
                          {
