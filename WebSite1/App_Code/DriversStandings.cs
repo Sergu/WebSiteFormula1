@@ -75,7 +75,7 @@ public class DriversStandings
         }
         catch (Exception ex)
         {
-            throw;
+            standingsDrivers.Clear();
         }
     }
 
@@ -108,51 +108,10 @@ public class DriversStandings
 
     private static string GetImageDriver(string number)
     {
-        switch (number)
-        {
-            case "11":
-                return "../ImagesDrivers/11.jpg";
-            case "12":
-                return "../ImagesDrivers/12.jpg";
-            case "13":
-                return "../ImagesDrivers/13.jpg";
-            case "14":
-                return "../ImagesDrivers/12.jpg";
-            case "19":
-                return "../ImagesDrivers/19.jpg";
-            case "22":
-                return "../ImagesDrivers/22.jpg";
-            case "26":
-                return "../ImagesDrivers/26.jpg";
-            case "27":
-                return "../ImagesDrivers/28.jpg";
-            case "28":
-                return "../ImagesDrivers/28.jpg";
-            case "3":
-                return "../ImagesDrivers/3.jpg";
-            case "33":
-                return "../ImagesDrivers/33.jpg";
-            case "44":
-                return "../ImagesDrivers/44.jpg";
-            case "5":
-                return "../ImagesDrivers/5.jpg";
-            case "55":
-                return "../ImagesDrivers/55.jpg";
-            case "6":
-                return "../ImagesDrivers/6.jpg";
-            case "7":
-                return "../ImagesDrivers/7.jpg";
-            case "77":
-                return "../ImagesDrivers/77.jpg";
-            case "8":
-                return "../ImagesDrivers/8.jpg";
-            case "9":
-                return "../ImagesDrivers/9.jpg";
-            case "98":
-                return "../ImagesDrivers/98.jpg";
-            default:
-                return "";
+        string pathImage = "../ImagesDrivers/";
+        string fullPath;
+        fullPath = String.Concat(pathImage, Convert.ToString(number), ".jpg");
 
-        }
+        return fullPath;
     }
-}
+}   

@@ -2,7 +2,7 @@
 
 <asp:Content ID="DriverInfoCOntent" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="driver-info-content">
-        <h2 style="text-align:center;font-family:'Times New Roman';font-size:large">2015 Driver Standings</h2>
+        <h1 style="text-align:left;font-family:'Times New Roman';margin:4%;color:gray">Driver Standings</h1>
         <div>
             <table style="text-align:left;width:100%">
                 <tbody>

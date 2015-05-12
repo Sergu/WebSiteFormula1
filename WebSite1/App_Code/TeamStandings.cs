@@ -43,7 +43,7 @@ public class TeamStandings
         }
         catch (Exception ex)
         {
-            throw;
+            standingsTeam.Clear();
         }
     }
 }

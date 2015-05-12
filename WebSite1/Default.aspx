@@ -66,21 +66,46 @@
         </div>
         <div ID="BlockNews" style="width:49%;max-height:100%;background-color:#e0f3f6;display:inline-block">
             <h2 style="margin:4%;font-family:'Times New Roman';text-align:center"> Some news from Formula 1 world</h2>
-            <asp:Button ID="ButtonUrlAdd" runat="server" CssClass="deleteItem_Button" Text="Add" OnClick="ButtonUrlAdd_Click" />
+            <asp:Button ID="ButtonUrlAdd" ValidationGroup="g1" runat="server" CssClass="deleteItem_Button" Text="Add" OnClick="ButtonUrlAdd_Click" />
             <asp:TextBox ID="TextBoxSite" Text="Site" Width="100px" runat="server"></asp:TextBox>
-            <asp:TextBox ID="TextBoxUrl" Text="url" Width="100px" runat="server"></asp:TextBox> <br />
+            <asp:TextBox ID="TextBoxUrl" Text="url" Width="100px" runat="server"></asp:TextBox>
+            <asp:RegularExpressionValidator
+                 ID ="RegularExpressionUrlValidator"
+                 runat="server"
+                 ControlToValidate="TextBoxSite"
+                 ErrorMessage="Введите сайт корректно"
+                 ForeColor="Red" ValidationGroup="g1" Display="Dynamic"                
+                 ValidationExpression="^(http|https|ftp)\://([a-zA-Z0-9\.\-]+(\:[a-zA-Z0-9\.&amp;%\$\-]+)*@)*((25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9])\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[1-9]|0)\.(25[0-5]|2[0-4][0-9]|[0-1]{1}[0-9]{2}|[1-9]{1}[0-9]{1}|[0-9])|localhost|([a-zA-Z0-9\-]+\.)*[a-zA-Z0-9\-]+\.(com|edu|gov|int|mil|net|org|biz|arpa|info|name|pro|aero|coop|museum|[a-zA-Z]{2}))(\:[0-9]+)*(/($|[a-zA-Z0-9\.\,\?\'\\\+&amp;%\$#\=~_\-]+))*$">               
+            </asp:RegularExpressionValidator>
+            <asp:RequiredFieldValidator
+                 ID="RequiredFieldValidatorTextBoxSite"
+                 runat="server"
+                 ControlToValidate="TextBoxSite"
+                 ErrorMessage="Заполнить Site"
+                 ForeColor="Red" ValidationGroup="g1" Display="Dynamic">
 
-            <asp:Button ID="ButtonDelete" runat="server" CssClass="deleteItem_Button" OnClick="ButtonDelete_Click" Text="Delete" />
+            </asp:RequiredFieldValidator>
+            <asp:RequiredFieldValidator
+                 ID="RequiredFieldValidatorTextBoxUrl"
+                 runat="server"
+                 ControlToValidate="TextBoxUrl"
+                 ErrorMessage="Заполнить Url"
+                 ForeColor="Red" ValidationGroup="g1" Display="Dynamic">
+
+            </asp:RequiredFieldValidator>
+            <br />
+
+            <asp:Button ID="ButtonDelete" ValidationGroup="g2" runat="server" CssClass="deleteItem_Button" OnClick="ButtonDelete_Click" Text="Delete" />
             <asp:DropDownList 
                 ID="DropDownListRssUrls"
                 runat="server"
                 width="212px"                
                 AutoPostBack="true" 
                 OnSelectedIndexChanged="DropDownListRssUrls_SelectedIndexChanged">
-                <asp:ListItem Text="http://www.f1-world.ru/" ></asp:ListItem>
+                <%--<asp:ListItem Text="http://www.f1-world.ru/" ></asp:ListItem>
                 <asp:ListItem Text="http://www.f1news.ru/" ></asp:ListItem>
                 <asp:ListItem Text="http://www.championat.com/"></asp:ListItem>
-                <asp:ListItem Text="http://www.autofaq.com.ua/blog/formula-1/"></asp:ListItem>
+                <asp:ListItem Text="http://www.autofaq.com.ua/blog/formula-1/"></asp:ListItem>--%>
             </asp:DropDownList><br /><br />
 
             <asp:Button ID="ButtonRefresh" runat="server" CssClass="refreshNews_Button" OnClick="ButtonRefresh_Click" Text="Refresh" />
@@ -98,7 +123,5 @@
             </div>
         </div>
     </div>
-<%--    <asp:LinkButton ID="DriverInfoButton" runat="server" OnClick="DriverInfoButton_Click">DriverInfo</asp:LinkButton>
-    <asp:LinkButton ID="CurrentRaceButton" runat="server" OnClick="CurrentRaceButton_Click">Latest Result</asp:LinkButton>--%>
 </asp:Content>
 

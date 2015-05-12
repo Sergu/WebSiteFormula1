@@ -20,7 +20,7 @@
             <li class="newli"><a class="newA" href="../Standings/RaceResultsCurrent.aspx">Standings</a></li>
             <li class="newli"><a class="newA" href="../Standings/DriverInfo.aspx">Drivers</a></li>
             <li class="newli"><a class="newA" href="../Standings/PersonalDriver.aspx">Teams</a></li>
-            <li class="newli"><a class="newA">Schedule</a></li>
+            <li class="newli"><a class="newA" href="../Standings/Schedule.aspx">Schedule</a></li>
             <li class="newli"><a class="newA" href="../Standings/LatestRaceResult.aspx">Last Race</a></li>
         </ul>    
     </div>

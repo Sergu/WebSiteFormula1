@@ -99,7 +99,7 @@ public class LatestRaceInfo
         }
         catch (Exception ex)
         {
-            throw;
+            LatestRaceResults = null;
         }
     }
 }

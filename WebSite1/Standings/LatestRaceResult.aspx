@@ -60,13 +60,13 @@
                     <td style="width:10%;font-family:Century">
                         <%#Eval("Status") %>
                     </td>
-                    <td style="width:10%">
+                    <td style="width:10%;color:gray">
                         <%#Eval("FastestLap") %>
                     </td>
                     <td style="width:12%">
                         <%#Eval("Time") %>
                     </td>
-                    <td style="width:8%;font-size:larger;color:black">
+                    <td style="width:8%;font-size:larger;color:gray">
                         <%#Eval("Points") %>
                     </td>
                 </tr>

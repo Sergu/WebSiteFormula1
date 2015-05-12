@@ -7,6 +7,12 @@ using System.Web.UI.WebControls;
 
 public partial class _Default : System.Web.UI.Page
 {
+    private Repository repository;
+
+    protected IEnumerable<News> GetNewsList()
+    {
+        return repository.NewsProperty;
+    }
     //public List<DriverInfoPilot>;
     protected void Page_Load(object sender, EventArgs e)
     {
@@ -26,7 +32,20 @@ public partial class _Default : System.Web.UI.Page
             {
                 TeamStandings.MakeTeamStandings();
             }
-            RepeaterDrivers.DataSource = DriversStandings.GetFirstTenDrivers();
+            if (repository == null)
+            {
+                repository = new Repository();
+
+                List<string> listRssUrls = new List<string>();
+                foreach(News newsClass in GetNewsList())
+                {
+                    DropDownListRssUrls.Items.Add(newsClass.SiteUrl);
+                    listRssUrls.Add(newsClass.RssLinq);
+                }
+                NewsPublishing.SetListRssUrls(listRssUrls);
+            }
+            //RepeaterDrivers.DataSource = DriversStandings.GetFirstTenDrivers();
+            RepeaterDrivers.DataSource = DriversStandings.GetDriverStandings();
             RepeaterDrivers.DataBind();
             RepeaterNews.DataSource = NewsPublishing.GetNewsColection();
             RepeaterNews.DataBind();
@@ -50,14 +69,31 @@ public partial class _Default : System.Web.UI.Page
     }
     protected void ButtonUrlAdd_Click(object sender, EventArgs e)
     {
-        ListItem newElement = new ListItem();
-        newElement.Text = TextBoxSite.Text;
-        NewsPublishing.AddListRssUrls(TextBoxUrl.Text);
-        DropDownListRssUrls.Items.Add(newElement);
+        if (Page.IsValid)
+        {
+            ListItem newElement = new ListItem();
+            newElement.Text = TextBoxSite.Text;
+            NewsPublishing.AddUrlToList(TextBoxUrl.Text);
+            DropDownListRssUrls.Items.Add(newElement);
+            using (TestDBContext context = new TestDBContext())
+            {
+                News news = new News();
+                news.RssLinq = TextBoxUrl.Text;
+                news.SiteUrl = TextBoxSite.Text;
+                context.News.Add(news);
+                context.SaveChanges();
+            }
+        }
     }
     protected void ButtonDelete_Click(object sender, EventArgs e)
     {
+        int PrimaryKey = DropDownListRssUrls.SelectedIndex + 1;
+        using (TestDBContext context = new TestDBContext())
+        {
+            context.News.Remove(context.News.Where(n => n.SiteUrl == DropDownListRssUrls.SelectedItem.Text).First());
+            context.SaveChanges();
+        }
+        NewsPublishing.RemoveUrlFromList(DropDownListRssUrls.SelectedIndex);
         DropDownListRssUrls.Items.RemoveAt(DropDownListRssUrls.SelectedIndex);
-        NewsPublishing.RemoveListUrls(DropDownListRssUrls.SelectedIndex);
     }
 }

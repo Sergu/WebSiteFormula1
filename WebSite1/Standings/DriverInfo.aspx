@@ -14,7 +14,7 @@
                         <div class="text_style_for_iherit">
                             <%#Eval("PermanentNumber") %>
                         </div>
-                        <div style="color:inherit">
+                        <div style="color:inherit;font-size:x-large">
                             <%#Eval("NameSurname") %>
                         </div>  
                         <div class="text_style_for_iherit">
