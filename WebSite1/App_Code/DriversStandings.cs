@@ -33,9 +33,13 @@ public class DriversStandings
     {
         return CurrentDriverNumber;
     }
-    public static IEnumerable<Driver> GetDriverStandings()
+    public static List<Driver> GetDriverStandings()
     {
         return standingsDrivers;
+    }
+    public static void SetDriverStandings(List<Driver> listDriverStandings)
+    {
+        standingsDrivers = listDriverStandings;
     }
     //public static IEnumerable<Driver> GetBest10DriverStandings()
     //{

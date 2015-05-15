@@ -37,9 +37,14 @@ public class LatestRaceInfo
 
     private static List<DriverRaceResult> LatestRaceResults;
 
-    public static IEnumerable<DriverRaceResult> GetLatestRaceResult()
+    public static List<DriverRaceResult> GetLatestRaceResult()
     {
         return LatestRaceResults;
+    }
+
+    public static void SetLatestRaceResult(List<DriverRaceResult> latestRaceRes)
+    {
+        LatestRaceResults = latestRaceRes;
     }
 	
     public static void MakeLatestRaceResult()
@@ -99,7 +104,7 @@ public class LatestRaceInfo
         }
         catch (Exception ex)
         {
-            LatestRaceResults = null;
+            LatestRaceResults.Clear();
         }
     }
 }

@@ -36,11 +36,15 @@ public class GrandPrixList
         }
         catch (Exception ex)
         {
-            scheduleList = null;
+            scheduleList.Clear();
         }
     }
-    public static IEnumerable<GrandPrix> GetScheduleList()
+    public static List<GrandPrix> GetScheduleList()
     {
         return scheduleList;
+    }
+    public static void SetScheduleList(List<GrandPrix> grandPrixList)
+    {
+        scheduleList = grandPrixList;
     }
 }

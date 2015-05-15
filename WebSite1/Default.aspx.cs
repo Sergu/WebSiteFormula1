@@ -21,6 +21,19 @@ public partial class _Default : System.Web.UI.Page
             if (DriversStandings.GetDriverStandings() == null)
             {
                 DriversStandings.MakeDriversStandings();
+                Cache.Insert("DriverStandings",DriversStandings.GetDriverStandings(),null,DateTime.Now.AddMinutes(60),TimeSpan.Zero);                
+            }
+            else
+            {
+                if (GetDriverStandingsFromCache().Count != 0)
+                {
+                    DriversStandings.SetDriverStandings(Cache["DriverStandings"] as List<Driver>);
+                }
+                else
+                {
+                    DriversStandings.MakeDriversStandings();
+                    Cache.Insert("DriverStandings", DriversStandings.GetDriverStandings(), null, DateTime.Now.AddMinutes(60), TimeSpan.Zero);
+                }               
                 
             }
             if (NewsPublishing.GetNewsColection() == null)
@@ -31,6 +44,19 @@ public partial class _Default : System.Web.UI.Page
             if (TeamStandings.GetTeamStandings() == null)
             {
                 TeamStandings.MakeTeamStandings();
+                Cache.Insert("TeamStandings", TeamStandings.GetTeamStandings(), null, DateTime.Now.AddMinutes(60), TimeSpan.Zero);
+            }
+            else
+            {
+                if (GetTeamStandingsFromCache().Count != 0)
+                {
+                    TeamStandings.SetTeamStandings(Cache["TeamStandings"] as List<Team>);
+                }
+                else
+                {
+                    TeamStandings.MakeTeamStandings();
+                    Cache.Insert("TeamStandings", TeamStandings.GetTeamStandings(), null, DateTime.Now.AddMinutes(60), TimeSpan.Zero);
+                }
             }
             if (repository == null)
             {
@@ -44,6 +70,9 @@ public partial class _Default : System.Web.UI.Page
                 }
                 NewsPublishing.SetListRssUrls(listRssUrls);
             }
+
+            //Cache.Insert("DriverStandings", DriversStandings.GetDriverStandings, null, DateTime.Now.AddMinutes(60), TimeSpan.Zero);
+
             //RepeaterDrivers.DataSource = DriversStandings.GetFirstTenDrivers();
             RepeaterDrivers.DataSource = DriversStandings.GetDriverStandings();
             RepeaterDrivers.DataBind();
@@ -95,5 +124,17 @@ public partial class _Default : System.Web.UI.Page
         }
         NewsPublishing.RemoveUrlFromList(DropDownListRssUrls.SelectedIndex);
         DropDownListRssUrls.Items.RemoveAt(DropDownListRssUrls.SelectedIndex);
+    }
+
+    private List<Driver> GetDriverStandingsFromCache()
+    {
+        var ListDriverStandings = Cache["DriverStandings"] as List<Driver>;
+
+        return ListDriverStandings;
+    }
+    private List<Team> GetTeamStandingsFromCache()
+    {
+        var listTeam = Cache["TeamStandings"] as List<Team>;
+        return listTeam;
     }
 }

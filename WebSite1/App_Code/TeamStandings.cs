@@ -16,6 +16,11 @@ public class TeamStandings
         return standingsTeam;
     }
 
+    public static void SetTeamStandings(List<Team> teamStandings)
+    {
+        standingsTeam = teamStandings;
+    }
+
     public static void MakeTeamStandings()
     {
         string teamStandingsUrl = "http://ergast.com/api/f1/current/constructorStandings";
