@@ -12,7 +12,7 @@
                         </div>
                         <div>
                         <div class="text_style_for_iherit">
-                            <%#Eval("PermanentNumber") %>
+                            <a href="PersonalDriver.aspx?page=<%#Eval("PermanentNumber") %>"><%#Eval("PermanentNumber") %></a>
                         </div>
                         <div style="color:inherit;font-size:x-large">
                             <%#Eval("NameSurname") %>
@@ -21,18 +21,7 @@
                             <%#Eval("Constructor") %>
                         </div>
                         </div>
-                    </div>
-<%--                    <asp:Panel ID="DriverBlock" CssClass="drivers_divBlock_in_li" runat="server" OnDataBinding="DriverBlock_DataBinding">
-                        <asp:Panel CssClass="text_style_for_iherit" runat="server">
-                            <%#Eval("PermanentNumber") %>
-                        </asp:Panel>
-                        <div style="color:inherit">
-                            <%#Eval("NameSurname") %>
-                        </div>
-                        <div class="text_style_for_iherit">
-                            <%#Eval("Constructor") %>
-                        </div>
-                    </asp:Panel>  --%>  
+                    </div>  
                 </li>
             </ItemTemplate>
         </asp:Repeater>

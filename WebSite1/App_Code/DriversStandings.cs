@@ -70,6 +70,7 @@ public class DriversStandings
 
                 driver.Constructor = xmlelement.LastChild.ChildNodes[0].InnerText;
                 driver.ImageCar = GetImageCar(driver.Constructor);
+                driver.ImageHelmet = GetDriverHelmet(driver.PermanentNumber);
                 driver.NameSurname = driver.GivenName + " " + driver.FamilyName;
                 if (driver.PermanentNumber != "20")
                 {
@@ -83,9 +84,9 @@ public class DriversStandings
         }
     }
 
-    private static string GetImageCar(string str)
+    private static string GetImageCar(string strTeam)
     {
-        switch (str)
+        switch (strTeam)
         {
             case "Mercedes":
                 return "../Images/teamCarMercedes.jpg";
@@ -117,5 +118,11 @@ public class DriversStandings
         fullPath = String.Concat(pathImage, Convert.ToString(number), ".jpg");
 
         return fullPath;
+    }
+
+    private static string GetDriverHelmet(string number)
+    {
+        string fullpath = "../Images/helmet.png";
+        return fullpath;
     }
 }   

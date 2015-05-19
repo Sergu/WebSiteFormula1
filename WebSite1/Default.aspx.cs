@@ -25,7 +25,7 @@ public partial class _Default : System.Web.UI.Page
             }
             else
             {
-                if (GetDriverStandingsFromCache().Count != 0)
+                    if (GetDriverStandingsFromCache().Count != 0)
                 {
                     DriversStandings.SetDriverStandings(Cache["DriverStandings"] as List<Driver>);
                 }

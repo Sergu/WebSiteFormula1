@@ -20,4 +20,5 @@ public class Driver
     public string ImageCar { get; set; }
     public string ImageDriver { get; set; }
     public string NameSurname { get; set; }
+    public string ImageHelmet { get; set; }
 }

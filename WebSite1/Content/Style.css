@@ -151,10 +151,13 @@ li:hover{
 .driverInfoDefaultFields{
     color:gray;
     font-size:large;
+    width:40%;
 }
-.driverInfoDinamicFields{
+.driverInfoDynamicFields{
     color:black;
     font-size:large;
+    font-family:'Times New Roman';
+    
 }
 .theadTable-DriverRaceLast {
     font-size:medium;
